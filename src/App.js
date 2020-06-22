@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Grid from './Comp/Grid';
+import CellState from './Classes/CellState';
 
-function App() {
+function App()
+{
+  let [Size, setSize] = useState(300);
+  let [Items, setItems] = useState([]);
+
+  useEffect(()=>
+  {
+    //First run, generate default by size
+    let Temp = [];
+    for (let i = 0; i < Size; i++)
+      for (let z = 0; z < Size; z++)
+        Temp.push(new CellState(z, i, 0));
+    setItems(Temp);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Grid items={Items} size={Size} />
     </div>
   );
 }
