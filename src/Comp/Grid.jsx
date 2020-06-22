@@ -9,8 +9,8 @@ function Grid(props)
     if (CanvasRef.current !== null)
     {
         var scale = window.devicePixelRatio;
-        CanvasRef.current.width = Math.floor(300 * scale);
-        CanvasRef.current.height = Math.floor(300 * scale);
+        CanvasRef.current.width = Math.floor(props.size * scale);
+        CanvasRef.current.height = Math.floor(props.size * scale);
         let Context = CanvasRef.current.getContext('2d');
 
         props.items.forEach((i)=>
