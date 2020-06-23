@@ -15,7 +15,9 @@ export default class Controller extends React.Component
             {
                 Adder = 1;
                 if (this.state.Items[idf].posX === x)
+                {
                     return idf;
+                }
             }
             else
                 Adder = this.Size - 1;
@@ -34,16 +36,16 @@ export default class Controller extends React.Component
 
         let pos1 = {}, pos2 = {}, pos3 = {}, pos4 = {}, pos5 = {};
         let Halfway = { x: Math.round(props.size / 2), y: Math.round(props.size / 2) };
-		pos1.x = Halfway.x - 2;
+        pos1.x = Halfway.x;
 		pos1.y = Halfway.y;
-		pos2.x = pos1.x;
-		pos2.y = pos1.y + 1;
-		pos3.x = pos1.x;
-		pos3.y = pos2.y + 1;
-		pos4.x = pos1.x - 1;
-		pos4.y = pos3.y;
+		pos2.x = pos1.x + 1;
+		pos2.y = pos1.y;
+		pos3.x = pos2.x + 1;
+		pos3.y = pos2.y;
+		pos4.x = pos3.x;
+		pos4.y = pos3.y - 1;
 		pos5.x = pos4.x - 1;
-        pos5.y = pos2.y;
+        pos5.y = pos4.y - 1;
 		this.state.Items[this.GetIDperPosition(pos1.x, pos1.y)].state = true;
 		this.state.Items[this.GetIDperPosition(pos2.x, pos2.y)].state = true;
 		this.state.Items[this.GetIDperPosition(pos3.x, pos3.y)].state = true;
