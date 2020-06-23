@@ -4,7 +4,7 @@ import Controller from "./Comp/Controller";
 function App()
 {
   return (
-      <Controller size={ 300 } />
+      <Controller size={ 150 } />
   );
 }
 
