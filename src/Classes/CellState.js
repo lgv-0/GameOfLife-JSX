@@ -2,7 +2,7 @@ class CellState
 {
     posX = null;
     posY = null;
-    state = 0;
+    state = false;
 
     constructor(posX, posY, state)
     {

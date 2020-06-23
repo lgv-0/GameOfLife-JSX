@@ -13,7 +13,7 @@ export default class Controller extends React.Component
         this.state = { Items: [] }
         for (let i = 0; i < props.size; i++)
             for (let z = 0; z < props.size; z++)
-                this.state.Items.push(new CellState(z, i, 0));
+                this.state.Items.push(new CellState(z, i, false));
     }
 
     update()
