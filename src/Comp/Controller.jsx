@@ -50,7 +50,7 @@ export default class Controller extends React.Component
 		this.state.Items[this.GetIDperPosition(pos2.x, pos2.y)].state = true;
 		this.state.Items[this.GetIDperPosition(pos3.x, pos3.y)].state = true;
 		this.state.Items[this.GetIDperPosition(pos4.x, pos4.y)].state = true;
-		this.state.Items[this.GetIDperPosition(pos5.x, pos5.y)].state = true;
+        this.state.Items[this.GetIDperPosition(pos5.x, pos5.y)].state = true;
     }
 
     update()
@@ -106,7 +106,7 @@ export default class Controller extends React.Component
 
     componentDidMount()
     {
-        let intervalId = setInterval(this.update.bind(this), 300);
+        let intervalId = setInterval(this.update.bind(this), 800);
         this.setState({ intervalId: intervalId });
     }
 

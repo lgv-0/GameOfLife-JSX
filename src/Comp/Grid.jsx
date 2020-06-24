@@ -12,6 +12,12 @@ export default class Grid extends React.Component
         this.Canvas = <GridContainer ref={this.CanvasRef} />;
     }
 
+    componentWillReceiveProps(nextProps)
+    {
+        this.setState({ Items: nextProps.items });
+        this.forceUpdate();
+    }
+
     render()
     {
         if (this.CanvasRef.current !== null)
