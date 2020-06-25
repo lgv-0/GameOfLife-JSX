@@ -22,9 +22,9 @@ export default class Grid extends React.Component
     {
         if (this.CanvasRef.current !== null)
         {
-            var scale = window.devicePixelRatio;
-            this.CanvasRef.current.width = Math.floor(this.Size * scale);
-            this.CanvasRef.current.height = Math.floor(this.Size * scale);
+            // var scale = window.devicePixelRatio;
+            // this.CanvasRef.current.width = Math.floor(this.Size * scale);
+            // this.CanvasRef.current.height = Math.floor(this.Size * scale);
             let Context = this.CanvasRef.current.getContext('2d');
 
             this.Items.forEach((i)=>
@@ -46,4 +46,6 @@ export default class Grid extends React.Component
 
 let GridContainer = styled.canvas`
     border: 3px solid black;
+    width: 500px;
+    height: 400px;
 `;
