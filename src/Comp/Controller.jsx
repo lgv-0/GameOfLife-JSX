@@ -113,7 +113,7 @@ export default class Controller extends React.Component
 
     componentDidMount()
     {
-        let intervalId = setInterval(this.update.bind(this), 250);
+        let intervalId = setInterval(this.update.bind(this), 500);
         this.setState({ intervalId: intervalId });
     }
 
