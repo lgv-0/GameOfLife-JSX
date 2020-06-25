@@ -14,7 +14,7 @@ export default class Grid extends React.Component
 
     componentWillReceiveProps(nextProps)
     {
-        this.setState({ Items: nextProps.items });
+        this.Items = nextProps.items;
         this.forceUpdate();
     }
 

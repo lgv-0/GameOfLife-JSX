@@ -56,6 +56,15 @@ export default class Controller extends React.Component
     update()
     {
         let tempItems = this.state.Items;
+        let newItems = [];
+        for (let i = 0; i < tempItems.length; i++)
+        {
+            let x = tempItems[i].posX.toString(),
+            y = tempItems[i].posY.toString(),
+            state = tempItems[i].state.toString();
+
+            newItems.push(new CellState(parseInt(x), parseInt(y), state === "true"));
+        }
 
         for (let i = 0; i < tempItems.length; i++)
         {
@@ -63,15 +72,13 @@ export default class Controller extends React.Component
             if (current.posX > 2 && current.posY > 2 &&
                 current.posX < this.Size - 2 && current.posY < this.Size - 2)
             {
-                let isAlive = current.state;
-
                 let aliveNeighbors = 0;
 
                 if (tempItems[i - 1].state)
                     aliveNeighbors++;
                 if (tempItems[i + 1].state)
                     aliveNeighbors++;
-            
+
                 let neighborUpIndex = i - this.Size;
                 let neighborDownIndex = i + this.Size;
 
@@ -89,24 +96,24 @@ export default class Controller extends React.Component
                 if (tempItems[neighborDownIndex + 1].state)
                     aliveNeighbors++;
                 
-                if (isAlive)
+                if (current.state)
                 {
                     if (aliveNeighbors < 2 || aliveNeighbors > 3)
-                        tempItems[i].state = false;
+                        newItems[i].state = false;
                 }
                 else if (aliveNeighbors === 3)
                 {
-                    tempItems[i].state = true;
+                    newItems[i].state = true;
                 }
             }
         }
 
-        this.setState({ Items: tempItems });
+        this.setState({ Items: newItems });
     }
 
     componentDidMount()
     {
-        let intervalId = setInterval(this.update.bind(this), 800);
+        let intervalId = setInterval(this.update.bind(this), 250);
         this.setState({ intervalId: intervalId });
     }
 
